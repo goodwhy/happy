@@ -3,8 +3,8 @@ import { defineStore } from 'pinia'
 
 export const useUserStore = defineStore('user', () => {
   const Token = ref('')
-  const getToken = () => {
-    Token.value = localStorage.getItem('token') || ''
+  const getToken = (newToken) => {
+    Token.value = newToken
   }
   const deleteToken = () => {
     Token.value = ''
@@ -15,4 +15,6 @@ export const useUserStore = defineStore('user', () => {
     getToken,
     deleteToken,
   }
+}, {
+  persist:true
 })

@@ -1,19 +1,21 @@
 import { useUserStore } from '@/stores/user'
-import { ElementPlus } from '@element-plus/icons-vue/dist/types'
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
-import { router } from 'vue-router'
+import { useRouter } from 'vue-router'
 const myAxios = axios.create({
-  baseURL: 'https://localhost:8000/api/',
-  timeout: 1000,
+  baseURL: 'http://localhost:8000/api/',
+  timeout: 10000,
   withCredentials: true,
 })
 // 添加请求拦截器
 myAxios.interceptors.request.use(
   function (config) {
-    const userStore = useUserStore()
-    config.headers['Content-Type'] = 'application/json'
-    config.headers['Authorization'] = `Token ${userStore.Token}`
+    const token = localStorage.getItem("token"); // Retrieve token from local storage
+    if (token) {
+      config.headers.Authorization = `Token ${token}`; // 将token添加到请求头中
+    }
+
+
     return config
   },
   function (error) {
@@ -23,12 +25,13 @@ myAxios.interceptors.request.use(
 )
 
 // 添加响应拦截器
-myAxios.interceptors.response.use(
+myAxios.interceptors.request.use(
   function (res) {
     return res
   },
   function (error) {
     if (response.data.status == 401) {
+      const router = useRouter()
       router.push('/login')
       return res
     }
