@@ -60,6 +60,8 @@
 
 
 
+
+
   </el-card>
 </template>
 <script setup>
@@ -68,6 +70,9 @@ import { ref ,watch} from 'vue'
 import { useUserStore } from '@/stores/user'
 import { register, login } from '@/api/user'
 import { ElMessage } from 'element-plus'
+
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 const userStore = useUserStore()
 const formModel = ref({
@@ -115,7 +120,7 @@ const rules = ref({
 const registerButton = async () => {
   console.log(formModel.value)
   await form.value.validate()//表单的校验成功
-  ElMessage.success('注册成功')
+
   const res = await register({
     username: formModel.value.username,
     password: formModel.value.password,
@@ -123,20 +128,33 @@ const registerButton = async () => {
   })
   localStorage.setItem("token", res.data.token)
   console.log(res)
+  if(res.data.code == 201){
+    ElMessage.success('注册成功')
+  }else{
+    ElMessage.error('注册失败')
+  }
   isRegister.value=false
 
 
 }
 const submitButton = async() => {
   await form.value.validate()//表单的校验成功
-  ElMessage.success('登陆成功')
+
   console.log()
   const res = await login({
     username: formModel.value.username,
     password: formModel.value.password
   })
   localStorage.setItem("token", res.data.token)
+  if (res.data.code == 201) {
+    ElMessage.success('登陆成功')
+
+  }else{
+    ElMessage.error('登陆失败')
+  }
+
   console.log(res)
+  router.push('/home')
 
 }
 watch(isRegister,()=>{
@@ -154,8 +172,13 @@ watch(isRegister,()=>{
 
 
 
+
+
 </script>
 <style scoped lang="scss">
+body{
+  z-index: 0;
+}
 
 .text {
   font-size: 30px;

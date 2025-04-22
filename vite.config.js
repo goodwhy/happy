@@ -12,7 +12,10 @@ export default defineConfig({
     vue(),
     vueDevTools(),
     AutoImport({
+      imports: ['vue', 'vue-router'],
+      //element
       resolvers: [ElementPlusResolver()],
+
     }),
     Components({
       resolvers: [ElementPlusResolver()],

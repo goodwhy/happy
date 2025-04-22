@@ -10,6 +10,7 @@ const router = createRouter({
       redirect: '/map',
       children: [
         { name: 'map', path: '/map', component: () => import('@/compontents/Map/LayputMap.vue') },
+        { name:'scence',path:'/scence',component:()=>import('@/compontents/Map/ScenceMap.vue')},
         {
           name: 'advance1',
           path: '/advance1',
