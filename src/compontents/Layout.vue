@@ -39,6 +39,11 @@
             <el-icon><Location /></el-icon>
             高级功能3
           </el-menu-item>
+
+          <el-menu-item index="/personal">
+            <el-icon><Location /></el-icon>
+            个人中心
+          </el-menu-item>
         </el-menu>
 
         <!-- 右侧用户区 -->
@@ -56,13 +61,11 @@
             </div>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item>
+                <el-dropdown-item @click="() => { $router.push('/personal') }">
                   <el-icon><User /></el-icon>个人中心
                 </el-dropdown-item>
-                <el-dropdown-item>
-                  <el-icon><Setting /></el-icon>账户设置
-                </el-dropdown-item>
-                <el-dropdown-item divided>
+
+                <el-dropdown-item divided @click="() => { localStorage.clear(); $router.push('/login') }">
                   <el-icon><SwitchButton /></el-icon>退出登录
                 </el-dropdown-item>
               </el-dropdown-menu>
@@ -82,7 +85,7 @@
     <el-footer class="footer">
       <div class="footer-content">
         <div class="copyright">
-          © 2023 易智瑞开发组C14组 | 京ICP备12345678号-1
+          © 2023 易智瑞开发组C147组
         </div>
       </div>
     </el-footer>
@@ -114,12 +117,20 @@ const activeMenu = ref(route.path)
 <style scoped lang="scss">
 
 .main-container {
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 
   .main-content {
     flex: 1;
+  //   padding: 0 !important; // 清除可能的内边距
+  // margin: 0; // 清除默认外边距
+
+overflow: hidden;
+position:relative;
+  background-color: #f8fafc;
 
     background-color: #f8fafc;
   }

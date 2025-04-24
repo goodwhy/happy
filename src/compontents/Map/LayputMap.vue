@@ -1,5 +1,6 @@
 <template>
   <div id="viewDiv">
+
     <el-tooltip content="3D" placement="bottom" effect="dark">
     <el-icon class="map-Scenceicon" @click="changeScence"><PictureRounded /></el-icon>
     </el-tooltip>
@@ -28,16 +29,23 @@ onMounted(() => {
     center: [0, 0], // Longitude, latitude
     zoom: 2 // Zoom level
   })
-  view.ui.remove(["attribution","zoom"])
+  view.ui.remove(["attribution", "zoom"])
+  setTimeout(() => {
+
+  },2000)
+
 
 })
 </script>
 <style scoped>
 #viewDiv {
 
-  width: 100vw;
-  height: 100vh;
-  position: relative;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0;    /* 新增 */
+  margin: 0 auto; /* 新增 */
+  box-sizing: border-box; /* 新增 */
 
 }
 

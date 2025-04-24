@@ -27,9 +27,14 @@ onMounted(() => {
 
 <style scoped>
 #viewDiv {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
+
+width: 100%;
+height: 100%;
+position: absolute;
+right: 0;    /* 新增 */
+margin: 0 auto; /* 新增 */
+box-sizing: border-box; /* 新增 */
+
 }
 
 </style>

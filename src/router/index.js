@@ -21,10 +21,26 @@ const router = createRouter({
           path: '/advance2',
           component: () => import('@/compontents/Advance/LayoutAdvance2.vue'),
         },
+        {
+          name: 'advance3',
+          path: '/advance3',
+          component: () => import('@/compontents/Advance/LayoutAdvance3.vue'),
+        },
+        { name: 'personal', path: '/personal', component: () => import('@/compontents/user/LayoutUser.vue') },
       ],
     },
     { name: 'login', path: '/login', component: () => import('@/compontents/Login.vue') },
   ],
 })
+
+// router.beforeEach((to, from) => {
+//   if (!localStorage.getItem('token') && to.path !== '/login') {
+//     return router.path('/login')
+//   }
+//   else {
+//     return true
+//   }
+// }) 添加路由守卫
+
 
 export default router

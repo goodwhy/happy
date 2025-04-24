@@ -1,5 +1,11 @@
 <template>
-  <div>我是功能1页面</div>
+  <div>
+    我是功能页面1
+  </div>
 </template>
-<script setup></script>
-<style scoped></style>
+<script setup>
+
+</script>
+<style scoped>
+
+</style>
