@@ -2,6 +2,7 @@
   <div class="auth-container">
     <!-- Left side - Image Gallery -->
     <div class="gallery-section">
+<<<<<<< HEAD
       <!-- 添加logo容器 -->
       <div class="logo-container">
         <img src="@/assets/TB.ico" alt="Logo" class="logo" />
@@ -9,6 +10,14 @@
       <div class="gallery-content">
         <h1>栖 境 智 观</h1>
         <p class="subtitle">——多源数据驱动的生态协同分析平台</p>
+=======
+      <div class="gallery-content">
+        <h1>栖境智观</h1>
+        <p class="subtitle">——多源数据驱动的生态协同分析平台</p>
+        <p>
+          融合鸟类分布、空气质量、地形与城市功能数据，以深度学习解码生态环境交互奥秘，用动态可视化呈现城市生态智慧，助力可持续发展决策。
+        </p>
+>>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
       </div>
 
       <!-- 图片画廊部分 -->
@@ -218,6 +227,7 @@ watch(isRegister, () => {
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 /* 添加logo样式 */
 .logo-container {
   position: absolute;
@@ -230,6 +240,8 @@ watch(isRegister, () => {
   height: 50px; /* 根据你的logo尺寸调整 */
   width: auto; /* 保持原始比例 */
 }
+=======
+>>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
 h1 {
   text-align: center;
 }
@@ -252,22 +264,36 @@ h1 {
 .gallery-content {
   padding: 30px;
   margin-left: 100px;
+<<<<<<< HEAD
   margin-top: 10px;
+=======
+>>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
   border-radius: 4px;
   text-align: center;
 }
 
 .gallery-content h1 {
+<<<<<<< HEAD
   line-height: 2;
   color: #333;
   font-size: 35px;
+=======
+  line-height: 1;
+  color: #333;
+  font-size: 32px;
+>>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
   /*margin-bottom: 30px;*/
 }
 
 .gallery-content .subtitle {
   margin-left: 270px;
+<<<<<<< HEAD
   font-size: 16px;
   line-height: 2;
+=======
+  font-size: 14px;
+  line-height: 1;
+>>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
 }
 .gallery-image {
   margin-left: 230px;
@@ -296,7 +322,11 @@ h1 {
 /* 表单卡片统一样式 */
 .auth-card {
   width: 100%;
+<<<<<<< HEAD
   max-width: 450px; /* 增加最大宽度 */
+=======
+  max-width: 480px; /* 增加最大宽度 */
+>>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
   min-width: 300px; /* 设置最小宽度 */
   height: 500px;
   border-radius: 12px;
@@ -335,7 +365,11 @@ h1 {
   position: relative;
   flex: 1;
   max-width: 500px;
+<<<<<<< HEAD
   max-height: 500px;
+=======
+  max-height: 480px;
+>>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
   min-height: 200px; /* 确保最小高度 */
 }
 .auth-title {
@@ -352,4 +386,8 @@ h1 {
   display: flex;
   justify-content: center;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
