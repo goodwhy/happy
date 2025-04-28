@@ -75,20 +75,15 @@
     <!-- 页面内容 -->
     <el-main class="main-content">
       <router-view />
-
     </el-main>
 
     <!-- 新增页脚 -->
     <el-footer class="footer">
       <div class="footer-content">
-        <div class="copyright">
-          © 2023 易智瑞开发组C14组 | 京ICP备12345678号-1
-        </div>
+        <div class="copyright">© 2023 易智瑞开发组C14组</div>
       </div>
     </el-footer>
-
   </el-container>
-
 </template>
 
 <script setup>
@@ -104,7 +99,7 @@ import {
   SwitchButton,
   ArrowDown,
   Loading,
-  Location
+  Location,
 } from '@element-plus/icons-vue'
 
 const route = useRoute()
@@ -112,7 +107,6 @@ const activeMenu = ref(route.path)
 </script>
 
 <style scoped lang="scss">
-
 .main-container {
   min-height: 100vh;
   display: flex;
@@ -124,26 +118,24 @@ const activeMenu = ref(route.path)
     background-color: #f8fafc;
   }
 }
-  .footer {
-    background: white;
-    color: rgba(8, 8, 8, 0.8);
+.footer {
+  background: white;
+  color: rgba(8, 8, 8, 0.8);
 
-    display: flex; /* 使用 Flexbox 布局 */
-    align-items: center;
-    justify-content: center;
-    .footer-content {
-      max-width:auto;
-      margin: 0 auto;
-
-
-    }
-    .copyright {
-        text-align: center;
-        border-top: rgba(24, 22, 22, 0.1);
-        color: rgba(14, 13, 13, 0.6);
-        font-size: 14px;
-      }
+  display: flex; /* 使用 Flexbox 布局 */
+  align-items: center;
+  justify-content: center;
+  .footer-content {
+    max-width: auto;
+    margin: 0 auto;
   }
+  .copyright {
+    text-align: center;
+    border-top: rgba(24, 22, 22, 0.1);
+    color: rgba(14, 13, 13, 0.6);
+    font-size: 14px;
+  }
+}
 
 .header {
   --header-height: 60px;
@@ -270,5 +262,4 @@ const activeMenu = ref(route.path)
     }
   }
 }
-
 </style>
