@@ -2,22 +2,13 @@
   <div class="auth-container">
     <!-- Left side - Image Gallery -->
     <div class="gallery-section">
-<<<<<<< HEAD
       <!-- 添加logo容器 -->
       <div class="logo-container">
-        <img src="@/assets/TB.ico" alt="Logo" class="logo" />
+        <img src="@/assets/logo.jpg" alt="Logo" class="logo" />
       </div>
       <div class="gallery-content">
         <h1>栖 境 智 观</h1>
         <p class="subtitle">——多源数据驱动的生态协同分析平台</p>
-=======
-      <div class="gallery-content">
-        <h1>栖境智观</h1>
-        <p class="subtitle">——多源数据驱动的生态协同分析平台</p>
-        <p>
-          融合鸟类分布、空气质量、地形与城市功能数据，以深度学习解码生态环境交互奥秘，用动态可视化呈现城市生态智慧，助力可持续发展决策。
-        </p>
->>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
       </div>
 
       <!-- 图片画廊部分 -->
@@ -120,14 +111,13 @@ import { ref, watch, onMounted, onUnmounted } from 'vue'
 import { useUserStore } from '@/stores/user'
 import { register, login } from '@/api/user'
 import { ElMessage } from 'element-plus'
-import image1 from '@/assets/2S.jpg'
-import image2 from '@/assets/3D.jpg'
-
+// 尝试改用这种方式导入图片
+const image1 = new URL('@/assets/2S.jpg', import.meta.url).href
+const image2 = new URL('@/assets/3D.jpg', import.meta.url).href
 const images = ref([image1, image2])
+
 // 禁用滚动
-const disableScroll = () => {
-  document.body.style.overflow = 'hidden'
-}
+
 onMounted(() => {
   document.body.style.overflow = 'hidden' // 禁用滚动
   startAutoPlay() // 新增
@@ -156,9 +146,10 @@ const setActiveImage = (index) => {
 }
 // 自动轮播函数
 const startAutoPlay = () => {
+  if (intervalId) clearInterval(intervalId)
   intervalId = setInterval(() => {
     activeImageIndex.value = (activeImageIndex.value + 1) % images.value.length
-  }, 10000) // 3秒切换一次
+  }, 3000) // 改为3秒更明显
 }
 
 const rules = ref({
@@ -227,7 +218,6 @@ watch(isRegister, () => {
 </script>
 
 <style scoped>
-<<<<<<< HEAD
 /* 添加logo样式 */
 .logo-container {
   position: absolute;
@@ -240,8 +230,6 @@ watch(isRegister, () => {
   height: 50px; /* 根据你的logo尺寸调整 */
   width: auto; /* 保持原始比例 */
 }
-=======
->>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
 h1 {
   text-align: center;
 }
@@ -249,7 +237,7 @@ h1 {
   display: flex;
   height: 100vh;
   width: 98vw;
-  margin: 0px auto;
+  margin: 0px;
   background-image: url('@/assets/BG.jpg');
   background-size: cover;
   background-position: center;
@@ -264,39 +252,24 @@ h1 {
 .gallery-content {
   padding: 30px;
   margin-left: 100px;
-<<<<<<< HEAD
   margin-top: 10px;
-=======
->>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
   border-radius: 4px;
   text-align: center;
 }
 
 .gallery-content h1 {
-<<<<<<< HEAD
   line-height: 2;
   color: #333;
   font-size: 35px;
-=======
-  line-height: 1;
-  color: #333;
-  font-size: 32px;
->>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
   /*margin-bottom: 30px;*/
 }
 
 .gallery-content .subtitle {
   margin-left: 270px;
-<<<<<<< HEAD
   font-size: 16px;
   line-height: 2;
-=======
-  font-size: 14px;
-  line-height: 1;
->>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
 }
 .gallery-image {
-  margin-left: 230px;
   position: absolute;
   top: 0;
   left: 0;
@@ -322,11 +295,7 @@ h1 {
 /* 表单卡片统一样式 */
 .auth-card {
   width: 100%;
-<<<<<<< HEAD
   max-width: 450px; /* 增加最大宽度 */
-=======
-  max-width: 480px; /* 增加最大宽度 */
->>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
   min-width: 300px; /* 设置最小宽度 */
   height: 500px;
   border-radius: 12px;
@@ -363,14 +332,12 @@ h1 {
 /* 图片区域自适应高度 */
 .image-gallery {
   position: relative;
-  flex: 1;
-  max-width: 500px;
-<<<<<<< HEAD
-  max-height: 500px;
-=======
-  max-height: 480px;
->>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
-  min-height: 200px; /* 确保最小高度 */
+  width: 500px;
+  height: 500px;
+  margin: 0px auto;
+  margin-left: 242px;
+  overflow: hidden; /* 添加这行 */
+  background-color: #f5f5f5; /* 临时添加，方便查看容器 */
 }
 .auth-title {
   text-align: center;
@@ -386,8 +353,4 @@ h1 {
   display: flex;
   justify-content: center;
 }
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> aefec366916a8f93235a4cc25c53cc8e072998b4
